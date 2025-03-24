@@ -1,0 +1,14 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Liên hệ'); ?>
+
+<?php $this->startSection('content'); ?>
+ <h1>Liên hệ</h1>
+ <p>Thông tin liên hệ:</p>
+ <ul>
+ <li>Email: dungdmph49130</li>
+ <li>Điện thoại: 0123.456.789</li>
+ </ul>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

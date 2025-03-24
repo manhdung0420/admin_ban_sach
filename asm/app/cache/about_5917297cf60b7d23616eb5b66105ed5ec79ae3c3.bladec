@@ -1,0 +1,10 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Giới thiệu'); ?>
+
+<?php $this->startSection('content'); ?>
+ <h1>Giới thiệu</h1>
+ <p>Đây là trang giới thiệu về website.</p>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

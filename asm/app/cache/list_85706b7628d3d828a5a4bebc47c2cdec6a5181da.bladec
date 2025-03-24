@@ -1,0 +1,26 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Danh sách bài viết'); ?>
+
+<?php $this->startSection('content'); ?>
+ <h1>Danh sách bài viết</h1>
+ <div class="container">
+ <div class="row">
+ <img src="./images/anh1.jpg" alt="">
+ <p>Đây là bài viết 1</p>
+ <a href="post">Xem Them</a>
+ </div>
+ <div class="row">
+ <img src="./images/anh1.jpg" alt="">
+ <p>Đây là bài viết 1</p>
+ <button><a href="post">Xem Them</a></button>
+ </div>
+ <div class="row">
+ <img src="./images/anh1.jpg" alt="">
+ <p>Đây là bài viết 1</p>
+ <button><a href="post">Xem Them</a></button>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layout'); } ?>

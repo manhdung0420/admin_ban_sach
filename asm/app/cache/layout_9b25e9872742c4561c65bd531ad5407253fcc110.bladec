@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title><?php echo $this->yieldContent('title'); ?></title>
+ <link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet" href="./css/list.css">
+</head>
+<body>
+ <header>
+ <div class="menu-container">
+ <div class="menu-left">
+ <ul class="menu">
+ <li><a href="./">Trang chủ</a></li>
+ <li><a href="./list">Danh sách bài viết</a></li>
+ <li><a href="./about">Giới thiệu</a></li>
+ <li><a href="./contact">Liên hệ</a></li>
+ </ul>
+ </div>
+ <div class="menu-right">
+ <ul class="menu">
+ <li><a href="./login">Đăng nhập</a></li>
+ <li><a href="./register">Đăng ký</a></li>
+ <li><a href="./admin">Trang Admin</a></li>
+ </ul>
+ </div>
+ </div>
+ </header>
+
+ <main>
+ <?php echo $this->yieldContent('content'); ?>
+ </main>
+
+ <footer>
+ <p>Đỗ Mạnh Dũng</p>
+ </footer>
+</body>
+</html>

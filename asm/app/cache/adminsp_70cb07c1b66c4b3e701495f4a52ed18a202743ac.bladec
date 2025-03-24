@@ -1,0 +1,111 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Admin sản phẩm'); ?>
+
+<?php $this->startSection('content2'); ?>
+<div class="content-wrapper">
+ <!-- Content Header (Page header) -->
+ <section class="content-header text-center">
+ <div class="container-fluid">
+ <div class="row mb-2">
+ <div class="col-sm-12">
+ <h1>Quản lý  sản phẩm</h1>
+ </div>
+ </div>
+ </div>
+</section>
+
+
+ <!-- Main content -->
+ <section class="content">
+ <div class="container-fluid">
+ <div class="row">
+ <div class="col-12">
+ <div class="card">
+ <div class="card-header">
+ <a href="#">
+ <button class="btn btn-success">Thêm sản phẩm</button>
+ </a>
+ </div>
+ <!-- /.card-header -->
+ <div class="card-body">
+ <table id="example1" class="table table-bordered table-striped">
+ <thead>
+ <tr>
+ <th>STT</th>
+ <th>Tên sản phẩm</th>
+ <th>Ảnh sản phẩm</th>
+ <th>Giá tiền</th>
+ <th>Giá Khuyễn mãi</th>
+ <th>Số lượng</th>
+ <th>Trạng thái</th>
+ <th>Thao Tác</th>
+ 
+ </thead>
+ 
+ <tbody>
+ <!-- <?php foreach($listDanhMuc as $key=>$danhmuc):?>
+ <tr>
+ <td><?= $key + 1 ?></td>
+ <td><?= $danhmuc['ten_danh_muc'] ?></td>
+ 
+ <td>
+ <a href="#">
+ <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
+ </a>
+ <a href="#" 
+ onclick="return confirm('bạn có đồng ý xóa hay không')">
+ <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+ </a>
+ 
+ </td>
+ </tr>
+ <?php endforeach; ?> -->
+ <tr>
+ <td>1</td>
+ <td>Đồng hồ rolex</td>
+ <td><img class="thumbnail" src="https://cdn.tgdd.vn/Files/2014/10/29/577178/diem-mat-nhung-do-phan-giai-pho-bien-hien-nay-tren-6.jpg" class="TV" width="100px" height="100px" alt="anhloi"></td>
+ <td>19.000.000đ</td>
+ <td>15.999.999</td>
+ <td>10</td>
+ <td>Còn bán</td>
+ <td>
+ <a href="#">
+ <button class="btn btn-warning"><i class="fas fa-cogs">Sửa</i></button>
+ </a>
+ <a href="#" 
+ onclick="return confirm('bạn có đồng ý xóa hay không')">
+ <button class="btn btn-danger"><i class="far fa-trash-alt">Xóa</i></button>
+ </a>
+ 
+ </td>
+ </tr>
+ </tbody>
+ <tfoot>
+ <tr>
+ <th>STT</th>
+ <th>Tên sản phẩm</th>
+ <th>Ảnh sản phẩm</th>
+ <th>Giá tiền</th>
+ <th>Giá Khuyễn mãi</th>
+ <th>Số lượng</th>
+ <th>Trạng thái</th>
+ <th>Thao tác</th>
+ </tfoot>
+ </table>
+ </div>
+ <!-- /.card-body -->
+ </div>
+ <!-- /.card -->
+ </div>
+ <!-- /.col -->
+ </div>
+ <!-- /.row -->
+ </div>
+ <!-- /.container-fluid -->
+ </section>
+ <!-- /.content -->
+</div>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin'); } ?>

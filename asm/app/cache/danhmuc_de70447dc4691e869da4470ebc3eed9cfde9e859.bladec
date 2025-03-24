@@ -1,0 +1,101 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Danh mục sản phẩm'); ?>
+
+<?php $this->startSection('content2'); ?>
+<div class="content-wrapper">
+ <!-- Content Header (Page header) -->
+ <section class="content-header text-center">
+ <div class="container-fluid">
+ <div class="row mb-2">
+ <div class="col-sm-12">
+ <h1>Quản lý danh mục sản phẩm</h1>
+ </div>
+ </div>
+ </div>
+</section>
+
+
+ <!-- Main content -->
+ <section class="content">
+ <div class="container-fluid">
+ <div class="row">
+ <div class="col-12">
+ <div class="card">
+ <div class="card-header">
+ <a href="#">
+ <button class="btn btn-success">Thêm danh mục</button>
+ </a>
+ </div>
+ <!-- /.card-header -->
+ <div class="card-body">
+ <table id="example1" class="table table-bordered table-striped">
+ <thead>
+ <tr>
+ <th>STT</th>
+ <th>Tên danh mục</th>
+ 
+ <th>Thao tác</th>
+ </tr>
+ 
+ </thead>
+ 
+ <tbody>
+ <!-- <?php foreach($listDanhMuc as $key=>$danhmuc):?>
+ <tr>
+ <td><?= $key + 1 ?></td>
+ <td><?= $danhmuc['ten_danh_muc'] ?></td>
+ 
+ <td>
+ <a href="#">
+ <button class="btn btn-warning"><i class="fas fa-cogs"></i></button>
+ </a>
+ <a href="#" 
+ onclick="return confirm('bạn có đồng ý xóa hay không')">
+ <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+ </a>
+ 
+ </td>
+ </tr>
+ <?php endforeach; ?> -->
+ <tr>
+ <td>1</td>
+ <td>Đồng hồ nam</td>
+ <td>
+ <a href="#">
+ <button class="btn btn-warning"><i class="fas fa-cogs">Sửa</i></button>
+ </a>
+ <a href="#" 
+ onclick="return confirm('bạn có đồng ý xóa hay không')">
+ <button class="btn btn-danger"><i class="far fa-trash-alt">Xóa</i></button>
+ </a>
+ 
+ </td>
+ </tr>
+ 
+ 
+ </tbody>
+ <tfoot>
+ <tr>
+ <th>STT</th>
+ <th>Tên danh mục</th>
+ <th>Thao tác</th>
+ </tr>
+ </tfoot>
+ </table>
+ </div>
+ <!-- /.card-body -->
+ </div>
+ <!-- /.card -->
+ </div>
+ <!-- /.col -->
+ </div>
+ <!-- /.row -->
+ </div>
+ <!-- /.container-fluid -->
+ </section>
+ <!-- /.content -->
+</div>
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('admin'); } ?>
