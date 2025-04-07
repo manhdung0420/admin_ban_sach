@@ -44,7 +44,7 @@
             <h4 class="mt-3">Tác giả: <small><?= $sanPham['tac_gia']; ?></small></h4>
             <h4 class="mt-3">Giá khuyến mãi: <small><?= $sanPham['gia']; ?></small></h4>
             <h4 class="mt-3">Số Lượng: <small><?= $sanPham['so_luong']; ?></small></h4>
-            <h4 class="mt-3">Số Lượng: <small><?= $sanPham['the_loai']; ?></small></h4>
+            <!-- <h4 class="mt-3">Thể loại: <small><?= $sanPham['the_loai']; ?></small></h4> -->
             <h4 class="mt-3">Danh mục: <small><?= $sanPham['ten_danh_muc']; ?></small></h4>
             <h4 class="mt-3">Mô tả: <small><?= $sanPham['mo_ta']; ?></small></h4>
 

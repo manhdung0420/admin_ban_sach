@@ -1,3 +1,11 @@
+<?php
+
+if (!isset($_SESSION['user_admin'])) {
+    // Nếu người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập
+    header("Location: " . BASE_URL_ADMIN . '?act=login-admin');
+    exit();
+}
+?>
 <!-- header -->
 <?php require './views/layout/header.php'; ?>
 <!-- Navbar -->

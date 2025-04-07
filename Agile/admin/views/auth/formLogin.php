@@ -115,14 +115,23 @@
 
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="./assets/index2.html" class="h1"><b>BÁN THÚ CƯNG</a>
+                <a href="" class="h1"><b>Quản trị bán sách</a>
             </div>
             <div class="card-body">
                 <?php if (isset($_SESSION['error'])) { ?>
-                    <p class="text-danger login-box-msg"><?= $_SESSION['error'] ?></p>
-                <?php }else{ ?>
+                    <p class="text-danger login-box-msg">
+                        <?php
+                        if (is_array($_SESSION['error'])) {
+                            echo implode('<br>', $_SESSION['error']); // If it's an array, join each item with a line break
+                        } else {
+                            echo $_SESSION['error']; // If it's a string, display it directly
+                        }
+                        ?>
+                    </p>
+                <?php } else { ?>
                     <p class="login-box-msg">Vui lòng đăng nhập</p>
                 <?php } ?>
+
                 <form action="<?= BASE_URL_ADMIN . '?act=check-login-admin'  ?>" method="post">
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" placeholder="Email" name="email">
@@ -151,6 +160,10 @@
                 <p class="mb-1">
                     <a href="#">Quên mật khẩu</a>
                 </p>
+                <p class="mb-1">
+                <p>Chưa có tài khoản? <a href="<?= BASE_URL_ADMIN ?>?act=register-admin">Đăng ký ngay</a></p>
+                </p>
+
             </div>
 
         </div>
