@@ -2,120 +2,114 @@
 <?php require './views/layout/header.php'; ?>
 <!-- Navbar -->
 <?php include './views/layout/navbar.php'; ?>
-<!-- /.navbar -->
-
-<!-- Main Sidebar Container -->
+<!-- Sidebar -->
 <?php include './views/layout/sidebar.php'; ?>
 
-<!-- Content Wrapper. Contains page content -->
+<!-- Content Wrapper -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
+  <!-- Content Header -->
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Quản lý chi tiết sản phẩm</h1>
+          <h1 class="text-primary font-weight-bold">Quản lý chi tiết sản phẩm</h1>
         </div>
       </div>
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
 
-  <!-- Main content -->
+  <!-- Main Content -->
   <section class="content">
-
-    <!-- Default box -->
-    <div class="card card-solid">
+    <div class="card shadow-lg">
       <div class="card-body">
         <div class="row">
-          <div class="col-12 col-sm-6">
-            <div class="col-12">
-              <img style="width: 400px; height: 400px" src="<?= BASE_URL . $sanPham['hinh_anh']; ?>" class="product-image" alt="Product Image">
+          <!-- Image Section -->
+          <div class="col-md-6">
+            <div class="mb-3 text-center">
+            <img class="product-image" style="width: 400px; height: 400px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" src="<?= BASE_URL . $sanPham['hinh_anh']; ?>" alt="Hình ảnh sản phẩm">
             </div>
-            <div class="col-12 product-image-thumbs">
+            <div class="d-flex justify-content-center flex-wrap gap-2">
               <?php foreach ($listAnhSanPham as $key => $anhSP) : ?>
-
-                <div class="product-image-thumb active <?= $anhSP[$key] == 0 ? 'active' : '' ?>"><img src="<?= BASE_URL . $anhSP["link_hinh_anh"]; ?>"></div>
-              <?php endforeach ?>
+                <div class="product-image-thumb <?= $key == 0 ? 'active' : '' ?>" style="cursor: pointer; border: 2px solid #ddd; border-radius: 8px; padding: 5px;">
+                  <img style="width: 60px; height: 60px; object-fit: cover; border-radius: 6px;" src="<?= BASE_URL . $anhSP["link_hinh_anh"]; ?>">
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
-          <div class="col-12 col-sm-6">
-            <h3 class="my-3">Tên sản phẩm: <?= $sanPham['ten_sach']; ?></h3>
-            <hr>
-            <h4 class="mt-3">Tác giả: <small><?= $sanPham['tac_gia']; ?></small></h4>
-            <h4 class="mt-3">Giá khuyến mãi: <small><?= $sanPham['gia']; ?></small></h4>
-            <h4 class="mt-3">Số Lượng: <small><?= $sanPham['so_luong']; ?></small></h4>
-            <!-- <h4 class="mt-3">Thể loại: <small><?= $sanPham['the_loai']; ?></small></h4> -->
-            <h4 class="mt-3">Danh mục: <small><?= $sanPham['ten_danh_muc']; ?></small></h4>
-            <h4 class="mt-3">Mô tả: <small><?= $sanPham['mo_ta']; ?></small></h4>
 
+          <!-- Info Section -->
+          <div class="col-md-6">
+            <h3 class="mb-3 text-dark">Tên sản phẩm: <span class="text-secondary font-italic"><?= $sanPham['ten_sach']; ?></span></h3>
+            <p><strong>Tác giả:</strong> <?= $sanPham['tac_gia']; ?></p>
+            <p><strong>Giá khuyến mãi:</strong> <span class="text-danger font-weight-bold"><?= number_format($sanPham['gia'], 0, ',', '.') ?> VND</span></p>
+            <p><strong>Số lượng còn lại:</strong> <?= $sanPham['so_luong']; ?></p>
+            <p><strong>Danh mục:</strong> <?= $sanPham['ten_danh_muc']; ?></p>
+            <p><strong>Mô tả:</strong> <div style="white-space: pre-line;"><?= $sanPham['mo_ta']; ?></div></p>
           </div>
         </div>
 
-        <!-- <div class="col-12">
-                    <hr>
-                    <h2>Bình luận của sản phẩm</h2>
-                    <table id="example2" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Sản phẩm</th>
-                                <th>Nội dung</th>
-                                <th>Ngày bình luận</th>
-                                <th>Trạng thái</th>
-                                <th>Thao tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($listBinhLuan as $key => $binhLuan) : ?>
-                                <tr>
-                                    <td><?= $key + 1 ?></td>
-                                    <td>
-                                        <a target="_blank" href="<?= BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $binhLuan["tai_khoan_id"]; ?>">
-                                            <?= $binhLuan['ho_ten'] ?>
-                                        </a>
-                                    </td>
-                                    <td><?= $binhLuan['noi_dung'] ?></td>
-                                    <td><?= $binhLuan['ngay_dang'] ?></td>
-                                    <td><?= $binhLuan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn' ?></td>
-                                    <td>
-                                        <form action="<?= BASE_URL_ADMIN . '?act=update-trang-thai-binh-luan' ?>" method="post">
-                                            <input type="hidden" name="id_binh_luan" value="<?= $binhLuan['id'] ?>">
-                                            <input type="hidden" name="name_view" value="detail_sanpham">                                            <input type="hidden" name="id_khach_hang" value="<?= $binhLuan['tai_khoan_id'] ?>">
-                                            <button onclick="return confirm('bạn có muốn ẩn bình luận này không')" class="btn btn-warning">
-                                                <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn' : 'Bỏ ẩn' ?>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
+        <!-- Comments Section -->
+        <div class="mt-5">
+          <h4 class="text-primary">Bình luận của sản phẩm</h4>
 
-                    </table>
-                </div>
-       
-        
-      </div> -->
-        <!-- /.card-body -->
+          <?php if (!empty($listBinhLuan)) : ?>
+            <div class="table-responsive">
+              <table id="example2" class="table table-hover table-striped table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th>STT</th>
+                    <th>Người bình luận</th>
+                    <th>Nội dung</th>
+                    <th>Ngày đăng</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($listBinhLuan as $key => $binhLuan) : ?>
+                    <tr>
+                      <td><?= $key + 1 ?></td>
+                      <td>
+                        <a target="_blank" href="<?= BASE_URL_ADMIN . '?act=chi-tiet-khach-hang&id_khach_hang=' . $binhLuan["tai_khoan_id"]; ?>">
+                          <?= $binhLuan['ho_ten'] ?>
+                        </a>
+                      </td>
+                      <td><?= $binhLuan['noi_dung'] ?></td>
+                      <td><?= $binhLuan['ngay_dang'] ?></td>
+                      <td>
+                        <span class="badge badge-<?= $binhLuan['trang_thai'] == 1 ? 'success' : 'secondary' ?>">
+                          <?= $binhLuan['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn' ?>
+                        </span>
+                      </td>
+                      <td>
+                        <form action="<?= BASE_URL_ADMIN . '?act=update-trang-thai-binh-luan' ?>" method="post">
+                          <input type="hidden" name="id_binh_luan" value="<?= $binhLuan['id'] ?>">
+                          <input type="hidden" name="name_view" value="detail_sanpham">
+                          <input type="hidden" name="id_khach_hang" value="<?= $binhLuan['tai_khoan_id'] ?>">
+                          <button onclick="return confirm('Bạn có muốn cập nhật trạng thái bình luận này?')" class="btn btn-sm btn-outline-warning">
+                            <?= $binhLuan['trang_thai'] == 1 ? 'Ẩn 👁️‍🗨️' : 'Bỏ ẩn 🚫' ?>
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          <?php else : ?>
+            <p class="text-muted mt-3">Chưa có bình luận nào cho sản phẩm này.</p>
+          <?php endif; ?>
+        </div>
       </div>
-      <!-- /.card -->
-
+    </div>
   </section>
-  <!-- /.content -->
 </div>
-<!-- /.content-wrapper -->
 
-<!-- Footer -->
 <?php include './views/layout/footer.php'; ?>
-<!-- End Footer -->
-<!-- Page specific script -->
+
+<!-- DataTable -->
 <script>
-  $(function() {
-    $("#example1").DataTable({
-      "responsive": true,
-      "lengthChange": false,
-      "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  $(function () {
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
@@ -127,18 +121,20 @@
     });
   });
 </script>
-<!-- Code injected by live-server -->
 
-</body>
+<!-- Image switching script -->
 <script>
-  $(document).ready(function() {
-    $('.product-image-thumb').on('click', function() {
-      var $image_element = $(this).find('img')
-      $('.product-image').prop('src', $image_element.attr('src'))
-      $('.product-image-thumb.active').removeClass('active')
-      $(this).addClass('active')
-    })
-  })
-</script>
+  $(document).ready(function () {
+    $('.product-image-thumb').on('click', function () {
+      let $image_element = $(this).find('img');
+      let newSrc = $image_element.attr('src');
 
-</html>
+      // Cập nhật ảnh lớn
+      $('.product-image').attr('src', newSrc);
+
+      // Highlight ảnh được chọn
+      $('.product-image-thumb').removeClass('active');
+      $(this).addClass('active');
+    });
+  });
+</script>

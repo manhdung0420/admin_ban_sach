@@ -82,7 +82,7 @@
                 <p>Tài khoản quản trị</p>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="<?= BASE_URL_ADMIN . '?act=list-tai-khoan-khach-hang' ?>" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>Tài khoản khách hàng</p>
@@ -93,8 +93,19 @@
                 <i class="nav-icon fas fa-user"></i>
                 <p>Tài khoản cá nhân</p>
               </a>
-            </li>
+            </li> -->
+            
           </ul>
+        </li>
+
+        <!-- bình luận -->
+        <li class="nav-item">
+          <a href="<?= BASE_URL_ADMIN . '?act=binh-luan'  ?>" class="nav-link">
+          <i class="nav-icon far fa-comment-dots"></i>
+            <p>
+              Bình luận
+            </p>
+          </a>
         </li>
 
 

@@ -104,40 +104,40 @@ class adminTaiKhoan
         }
     }
 
-    public function updateKhachHang($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai)
-    {
-        try {
-            // var_dump($trang_thai_id);die;
-            $sql = 'UPDATE `tai_khoans` 
-                    SET 
-                        ho_ten = :ho_ten,
-                        email = :email,
-                        so_dien_thoai = :so_dien_thoai,
-                        ngay_sinh = :ngay_sinh,
-                        gioi_tinh = :gioi_tinh,
-                        dia_chi = :dia_chi,
-                        trang_thai = :trang_thai
-                    WHERE id = :id';
-            // var_dump($sql);die;
-            $stmt = $this->conn->prepare($sql);
-            // var_dump($stmt);die;
-            $stmt->execute([
-                ':ho_ten' => $ho_ten,
-                ':email' => $email,
-                ':so_dien_thoai' => $so_dien_thoai,
-                ':ngay_sinh' => $ngay_sinh,
-                ':gioi_tinh' => $gioi_tinh,
-                ':dia_chi' => $dia_chi,
-                ':trang_thai' => $trang_thai,
-                ':id' => $id
+    // public function updateKhachHang($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $gioi_tinh, $dia_chi, $trang_thai)
+    // {
+    //     try {
+    //         // var_dump($trang_thai_id);die;
+    //         $sql = 'UPDATE `tai_khoans` 
+    //                 SET 
+    //                     ho_ten = :ho_ten,
+    //                     email = :email,
+    //                     so_dien_thoai = :so_dien_thoai,
+    //                     ngay_sinh = :ngay_sinh,
+    //                     gioi_tinh = :gioi_tinh,
+    //                     dia_chi = :dia_chi,
+    //                     trang_thai = :trang_thai
+    //                 WHERE id = :id';
+    //         // var_dump($sql);die;
+    //         $stmt = $this->conn->prepare($sql);
+    //         // var_dump($stmt);die;
+    //         $stmt->execute([
+    //             ':ho_ten' => $ho_ten,
+    //             ':email' => $email,
+    //             ':so_dien_thoai' => $so_dien_thoai,
+    //             ':ngay_sinh' => $ngay_sinh,
+    //             ':gioi_tinh' => $gioi_tinh,
+    //             ':dia_chi' => $dia_chi,
+    //             ':trang_thai' => $trang_thai,
+    //             ':id' => $id
 
-            ]);
+    //         ]);
 
-            return true;
-        } catch (Exception $e) {
-            echo "CÓ LỖI:" . $e->getMessage();
-        }
-    }
+    //         return true;
+    //     } catch (Exception $e) {
+    //         echo "CÓ LỖI:" . $e->getMessage();
+    //     }
+    // }
 
 
     public function checkLogin($email, $mat_khau)

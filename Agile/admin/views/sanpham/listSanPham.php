@@ -39,7 +39,7 @@
                     <th>STT</th>
                     <th>Tên sách</th>
                     <th>Tác giả</th>
-                    <th>Thể loại</th>
+                    <!-- <th>Thể loại</th> -->
                     <th>Ảnh</th>
                     <th>Số lượng</th>
                     <th>Giá</th>
@@ -55,7 +55,7 @@
                       <td><?= $key+1 ?></td>
                       <td><?= $sanPham['ten_sach'] ?></td>
                       <td><?= $sanPham['tac_gia'] ?></td>
-                      <td><?= $sanPham['the_loai'] ?></td>
+                      <!-- <td><?= $sanPham['the_loai'] ?></td> -->
                       <td>
                         <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" style="width: 100px; height: 100px;" alt=""
                         onerror="this.onerror=null; this.src='https://example.com/default-book-image.jpg'">
@@ -87,7 +87,7 @@
                     <th>STT</th>
                     <th>Tên sách</th>
                     <th>Tác giả</th>
-                    <th>Thể loại</th>
+                    <!-- <th>Thể loại</th> -->
                     <th>Ảnh</th>
                     <th>Số lượng</th>
                     <th>Giá</th>

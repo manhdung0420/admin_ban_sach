@@ -16,12 +16,15 @@ require_once './controllers/adminDanhMucController.php';
 require_once './controllers/adminDonHangController.php';
 require_once './controllers/adminBaoCaoThongKeController.php';
 require_once './controllers/adminTaiKhoanController.php';
+require_once './controllers/adminBinhLuanController.php';
+
 
 // Require toàn bộ file Models
 require_once './models/adminSanPham.php';
 require_once './models/adminDanhMuc.php';
 require_once './models/adminDonHang.php';
 require_once './models/adminTaiKhoan.php';
+require_once './models/adminBinhLuan.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -98,4 +101,10 @@ match ($act) {
     // route đăng ký
     'register-admin' => (new adminTaiKhoanController())->formRegister(),
     'handle-register-admin' => (new adminTaiKhoanController())->register(),
+
+    //bình luận
+     // route quản lý đơn hàng
+     'binh-luan'=>(new adminBinhLuanController())->danhSachBinhLuan(),
+     'xoa-binh-luan'=>(new adminBinhLuanController())->xoaBinhLuan(),
+     'detail-binh-luan'=>(new adminBinhLuanController())->chiTietBinhLuan(),
 };
